@@ -1,0 +1,371 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+* {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Base styles for better mobile experience */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Brutalist Shadows */
+@layer utilities {
+  .shadow-brutal {
+    box-shadow: 4px 4px 0px 0px #000000;
+  }
+  
+  @media (min-width: 640px) {
+    .shadow-brutal {
+      box-shadow: 8px 8px 0px 0px #000000;
+    }
+  }
+  
+  .shadow-brutal-hover {
+    box-shadow: 6px 6px 0px 0px #000000;
+  }
+  
+  @media (min-width: 640px) {
+    .shadow-brutal-hover {
+      box-shadow: 12px 12px 0px 0px #000000;
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+  border: 2px solid #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Light theme scrollbar */
+.light ::-webkit-scrollbar-track {
+  background: #fff;
+  border: 2px solid #000;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border: 2px solid #000;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
+}
+
+/* Animation for typing effect */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* Custom button hover effects */
+.btn-brutal {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-brutal:hover {
+  transform: translate(-4px, -4px);
+}
+
+/* Glitch effect for headers */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Additional micro-animations for landing visuals */
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes floatX {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(12px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes bob {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -8px, 0) rotate(1deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes slowspin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Utility classes */
+.animate-float-slow { animation: floatY 6s ease-in-out infinite; }
+.animate-float-med { animation: floatY 4.5s ease-in-out infinite; }
+.animate-float-fast { animation: floatY 3s ease-in-out infinite; }
+.animate-bob { animation: bob 5s ease-in-out infinite; }
+.animate-fade-in-up { animation: fadeInUp 600ms ease-out both; }
+.animate-scanline { animation: scanline 4s linear infinite; mix-blend-mode: overlay; }
+.animate-slowspin { animation: slowspin 18s linear infinite; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-med,
+  .animate-float-fast,
+  .animate-bob,
+  .animate-fade-in-up,
+  .animate-scanline,
+  .animate-slowspin,
+  .glitch:hover,
+  .cursor-blink {
+    animation: none !important;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Prevent horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improved text readability on mobile */
+  p, li {
+    line-height: 1.6;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #10b981;
+  outline-offset: 2px;
+}
+
+.light button:focus-visible,
+.light a:focus-visible,
+.light input:focus-visible,
+.light textarea:focus-visible {
+  outline-color: #f97316;
+}
+
+/* Improved contrast for better visibility */
+.dark {
+  --text-primary: #ffffff;
+  --text-secondary: #10b981;
+  --bg-primary: #000000;
+  --bg-secondary: #ffffff;
+}
+
+.light {
+  --text-primary: #000000;
+  --text-secondary: #f97316;
+  --bg-primary: #ffffff;
+  --bg-secondary: #000000;
+}
+
+/* Subtle grid textures for depth (light/dark) */
+.bg-grid-subtle-light {
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.bg-grid-subtle-dark {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Gentle space drift animations for background icons */
+@keyframes space-drift-slow {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); }
+  50% { transform: translateY(-8px) translateX(6px) rotate(2deg); }
+  100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
+
+@keyframes space-drift-med {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); }
+  50% { transform: translateY(-12px) translateX(-8px) rotate(-3deg); }
+  100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
+
+.animate-space-drift-slow {
+  animation: space-drift-slow 10s ease-in-out infinite;
+}
+
+.animate-space-drift-med {
+  animation: space-drift-med 14s ease-in-out infinite;
+}
+
+/* --------------------------------------------------
+   Retro Pixel Cursor (desktop) with sensible fallbacks
+   -------------------------------------------------- */
+body {
+  cursor: url('/cursor-retro.svg') 0 0, auto;
+}
+
+button, a, [role="button"] {
+  cursor: url('/cursor-retro.svg') 0 0, pointer;
+}
+
+/* Keep text fields with I-beam cursor for usability */
+input, textarea {
+  cursor: text !important;
+}
+
+/* Disable custom cursor on touch/coarse pointers (mobile/tablet) */
+@media (pointer: coarse), (hover: none) {
+  body, button, a, [role="button"] {
+    cursor: auto !important;
+  }
+}
+
+/* --------------------------------------------------
+   Subtle animation utilities + reduced-motion support
+   -------------------------------------------------- */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 500ms ease-out both;
+  will-change: opacity;
+}
+
+.animate-slide-up {
+  animation: slide-up 600ms ease-out both;
+  will-change: opacity, transform;
+}
+
+/* Alias used by components */
+.animate-fade-in-up {
+  animation: fade-in-up 650ms ease-out both;
+  will-change: opacity, transform;
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in, .animate-slide-up, .animate-fade-in-up,
+  .animate-space-drift-slow, .animate-space-drift-med {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    animation-name: none !important;
+  }
+}
+
+/* --------------------------------------------------
+   React Custom Triangle Cursor
+   -------------------------------------------------- */
+/* Hidden by default; enabled for fine pointers via body.use-custom-cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--cursor-fill, #000000);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  border: 3px solid var(--cursor-border, #22d3ee);
+  box-shadow: 4px 4px 0 var(--cursor-shadow, #a855f7);
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 50ms linear, opacity 200ms ease;
+  opacity: 0;
+}
+
+/* Activate custom cursor and hide default cursor on fine pointers */
+body.use-custom-cursor {
+  cursor: none !important;
+}
+body.use-custom-cursor button,
+body.use-custom-cursor a,
+body.use-custom-cursor [role="button"] {
+  cursor: none !important;
+}
+body.use-custom-cursor .custom-cursor {
+  opacity: 1;
+}
+
+/* Keep I-beam for text inputs even with custom cursor enabled */
+body.use-custom-cursor input,
+body.use-custom-cursor textarea {
+  cursor: text !important;
+}
+
+/* Never show the custom cursor on coarse pointers/touch */
+@media (pointer: coarse), (hover: none) {
+  .custom-cursor { display: none !important; }
+}

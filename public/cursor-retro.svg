@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <rect width="16" height="16" fill="none"/>
+  <!-- Pixelated retro arrow cursor -->
+  <path d="M1 1 L1 12 L4 9 L6 14 L8 13 L6 8 L10 8 Z" fill="#000000"/>
+  <path d="M2 2 L2 9 L4 7 L6 12 L7 11 L5 6 L9 6 Z" fill="#00ff66"/>
+</svg>
