@@ -7,7 +7,6 @@ import Projects from './components/Projects';
 import Resume from './components/Resume';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -25,7 +24,6 @@ function App() {
     <div className={`font-mono overflow-x-hidden min-h-screen ${
       isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
     }`}>
-      <CustomCursor isDarkMode={isDarkMode} />
       <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <Hero isDarkMode={isDarkMode} />
       <About isDarkMode={isDarkMode} />

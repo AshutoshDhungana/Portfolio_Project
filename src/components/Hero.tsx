@@ -91,7 +91,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
             <h1 className={`text-2xl sm:text-4xl lg:text-6xl font-bold mb-4 ${
               isDarkMode ? 'text-white' : 'text-black'
             }`}>
-              ALEX CHEN
+              ASHUTOSH.DHUNGANA
             </h1>
             <div className="text-left mb-4">
               <span className={isDarkMode ? 'text-green-400' : 'text-orange-500'}>user@portfolio:~$ </span>

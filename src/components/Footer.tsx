@@ -80,7 +80,7 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
             isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
           }`}>
             <p className="font-bold flex items-center justify-center space-x-2 text-xs sm:text-base">
-              <span>© 2025 ALEX CHEN • MADE WITH</span>
+              <span>© 2025 Ashutosh Dhungana • MADE WITH</span>
               <Heart size={16} className="text-red-400" />
               <span>AND A LOT OF</span>
               <Coffee size={16} className="text-yellow-400" />

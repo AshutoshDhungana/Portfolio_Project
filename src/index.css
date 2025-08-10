@@ -259,28 +259,6 @@ textarea:focus-visible {
   animation: space-drift-med 14s ease-in-out infinite;
 }
 
-/* --------------------------------------------------
-   Retro Pixel Cursor (desktop) with sensible fallbacks
-   -------------------------------------------------- */
-body {
-  cursor: url('/cursor-retro.svg') 0 0, auto;
-}
-
-button, a, [role="button"] {
-  cursor: url('/cursor-retro.svg') 0 0, pointer;
-}
-
-/* Keep text fields with I-beam cursor for usability */
-input, textarea {
-  cursor: text !important;
-}
-
-/* Disable custom cursor on touch/coarse pointers (mobile/tablet) */
-@media (pointer: coarse), (hover: none) {
-  body, button, a, [role="button"] {
-    cursor: auto !important;
-  }
-}
 
 /* --------------------------------------------------
    Subtle animation utilities + reduced-motion support
@@ -324,48 +302,4 @@ input, textarea {
     animation-iteration-count: 1 !important;
     animation-name: none !important;
   }
-}
-
-/* --------------------------------------------------
-   React Custom Triangle Cursor
-   -------------------------------------------------- */
-/* Hidden by default; enabled for fine pointers via body.use-custom-cursor */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 24px;
-  background: var(--cursor-fill, #000000);
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-  border: 3px solid var(--cursor-border, #22d3ee);
-  box-shadow: 4px 4px 0 var(--cursor-shadow, #a855f7);
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 50ms linear, opacity 200ms ease;
-  opacity: 0;
-}
-
-/* Activate custom cursor and hide default cursor on fine pointers */
-body.use-custom-cursor {
-  cursor: none !important;
-}
-body.use-custom-cursor button,
-body.use-custom-cursor a,
-body.use-custom-cursor [role="button"] {
-  cursor: none !important;
-}
-body.use-custom-cursor .custom-cursor {
-  opacity: 1;
-}
-
-/* Keep I-beam for text inputs even with custom cursor enabled */
-body.use-custom-cursor input,
-body.use-custom-cursor textarea {
-  cursor: text !important;
-}
-
-/* Never show the custom cursor on coarse pointers/touch */
-@media (pointer: coarse), (hover: none) {
-  .custom-cursor { display: none !important; }
 }
